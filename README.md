@@ -31,11 +31,11 @@ really a list containing a function to
                     inv <<- NULL
             }
             get <- function() x
-            setinverse <- function(inverse) inv <<- inverse
-            getinverse <- function() inv
+            setInverse <- function(inverse) inv <<- inverse
+            getInverse <- function() inv
             list(set = set, get = get,
-                 setinverse = setinverse,
-                 getinverse = getinverse)
+                 setInverse = setInverse,
+                 getInverse = getInverse)
     }
 
 The following function calculates the inverse of the special "matrix"
@@ -46,14 +46,14 @@ inverse of the data and sets the value of the inverse in the cache
 via the 'setinverse' function.
 
     cacheSolve <- function(x, ...) {
-            inv <- x$getinverse()
+            inv <- x$getInverse()
             if(!is.null(inv)) {
                     message("getting cached data")
                     return(inv)
             }
             data <- x$get()
             inv <- solve(data)
-            x$setinverse(inv)
+            x$setInverse(inv)
             inv
     }
 
